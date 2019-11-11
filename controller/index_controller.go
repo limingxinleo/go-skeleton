@@ -1,11 +1,13 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"app/kernel"
+)
 
 type IndexController struct {
-	Ctx *gin.Context
+	Response kernel.Response
 }
 
 func (this IndexController) Index() {
-	this.Ctx.JSON(0, "Hello World.")
+	this.Response.Success("Hello World.")
 }
