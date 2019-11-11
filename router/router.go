@@ -9,7 +9,8 @@ import (
 func GetServer() *gin.Engine {
 	r := gin.New()
 
-	r.Use(gin.Logger(), gin.Recovery())
+	r.Use(gin.Logger())
+	r.Use(gin.Recovery())
 
 	r.GET("/", func(context *gin.Context) {
 		controller.IndexController{kernel.Response{context}}.Index()
