@@ -1,6 +1,6 @@
 FROM golang:1.13 as builder
 
-LABEL maintainer="limx <h@hyperf.io>"
+LABEL maintainer="limx <l@hyperf.io>"
 ENV GOPROXY https://goproxy.cn,direct
 ENV GO111MODULE=on
 
@@ -22,6 +22,7 @@ ENV GIN_MODE=release
 
 COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=builder /go/builder/.env /
 COPY --from=builder /go/builder/app /
 
 EXPOSE 9501
