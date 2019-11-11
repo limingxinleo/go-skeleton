@@ -4,7 +4,7 @@ type Config struct {
 	items map[string]string
 }
 
-func (this *Config) Get(key string, value string) string {
+func (this Config) Get(key string, value string) string {
 	ret, ok := this.items [ key ]
 	if (ok) {
 		return ret
@@ -13,7 +13,7 @@ func (this *Config) Get(key string, value string) string {
 	return value
 }
 
-func (this *Config) Has(key string) bool {
+func (this Config) Has(key string) bool {
 	_, ok := this.items [ key ]
 	if (ok) {
 		return true
@@ -22,7 +22,7 @@ func (this *Config) Has(key string) bool {
 	return false
 }
 
-func (this *Config) Init(items map[string]string) *Config {
+func (this Config) Init(items map[string]string) Config {
 	this.items = items
 	return this
 }
