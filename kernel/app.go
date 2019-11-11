@@ -13,6 +13,7 @@ func init() {
 
 	providers["config"] = ConfigProvider{}
 	providers["db"] = GormProvider{}
+	providers["redis"] = RedisProvider{}
 }
 
 func BootStrap() {
