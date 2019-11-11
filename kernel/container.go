@@ -1,5 +1,7 @@
 package kernel
 
+import "app/kernel/contract"
+
 type Container struct {
 	Container map[string]interface{}
 }
@@ -7,6 +9,9 @@ type Container struct {
 func (this Container) Get(key string, value interface{}) interface{} {
 	ret, ok := this.Container [ key ]
 	if (ok) {
+		if ret, ok := ret.(contract.HandlerFunc); ok {
+			DI.Set(key, ret(this))
+		}
 		return ret
 	}
 

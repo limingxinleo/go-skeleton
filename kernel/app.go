@@ -12,6 +12,7 @@ func init() {
 	providers = map[string]interface{}{}
 
 	providers["config"] = ConfigProvider{}
+	providers["db"] = GormProvider{}
 }
 
 func BootStrap() {
