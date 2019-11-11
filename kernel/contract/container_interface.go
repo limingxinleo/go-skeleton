@@ -1,9 +1,11 @@
 package contract
 
-type HandlerFunc func(ContainerInterface) interface{}
+type DefinitionHandler func(ContainerInterface) interface{}
 
 type ContainerInterface interface {
-	Get(key string, value interface{}) interface{}
-	Set(key string, handler interface{})
+	Get(key string) interface{}
+	Make(key string) interface{}
+	Set(key string, handler interface{}) interface{}
+	SetDefinition(key string, handler DefinitionHandler)
 	Has(key string) bool
 }

@@ -10,9 +10,9 @@ import (
 type GormProvider struct {
 }
 
-func (this GormProvider) Invoke() interface{} {
+func (this GormProvider) Invoke() contract.DefinitionHandler {
 	return func(container contract.ContainerInterface) interface{} {
-		config := container.Get("config", nil).(contract.ConfigInterface);
+		config := container.Get("config").(contract.ConfigInterface);
 
 		dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=True&loc=Local",
 			config.Get("DB_USERNAME", "root"),

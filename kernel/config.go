@@ -21,8 +21,3 @@ func (this Config) Has(key string) bool {
 
 	return false
 }
-
-func (this Config) Init(items map[string]string) Config {
-	this.items = items
-	return this
-}

@@ -1,11 +1,15 @@
 package model
 
-import (
-	"github.com/jinzhu/gorm"
-)
+import "time"
 
 type User struct {
-	gorm.Model
-	Name string
-	Gender uint
+	ID        uint64 `gorm:"primary_key"`
+	Name      string
+	Gender    uint8
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
+
+func (User) TableName() string {
+	return "user"
 }

@@ -8,7 +8,7 @@ var DI Container
 var providers map[string]interface{}
 
 func init() {
-	DI = Container{Container: map[string]interface{}{}}
+	DI = GetContainer()
 	providers = map[string]interface{}{}
 
 	providers["config"] = ConfigProvider{}
@@ -18,7 +18,7 @@ func init() {
 func BootStrap() {
 	for key, value := range providers {
 		if ret, ok := value.(contract.ProviderInterface); ok {
-			DI.Set(key, ret.Invoke())
+			DI.SetDefinition(key, ret.Invoke())
 		}
 	}
 }
