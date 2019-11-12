@@ -1,4 +1,4 @@
-package kernel
+package orm
 
 import (
 	"app/kernel/contract"

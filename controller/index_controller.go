@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"app/kernel"
+	"app/kernel/http"
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,6 +10,6 @@ type IndexController struct {
 
 func (this IndexController) Index() gin.HandlerFunc {
 	return func(context *gin.Context) {
-		kernel.Response{context}.Success("Hello World.")
+		http.Response{context}.Success("Hello World.")
 	}
 }

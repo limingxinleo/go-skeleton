@@ -1,4 +1,4 @@
-package kernel
+package config
 
 type Config struct {
 	items map[string]string

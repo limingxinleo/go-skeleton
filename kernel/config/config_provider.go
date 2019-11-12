@@ -1,4 +1,4 @@
-package kernel
+package config
 
 import (
 	"app/kernel/contract"

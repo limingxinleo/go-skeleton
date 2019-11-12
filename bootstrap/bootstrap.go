@@ -2,7 +2,10 @@ package bootstrap
 
 import (
 	"app/kernel"
+	"app/kernel/config"
 	"app/kernel/contract"
+	"app/kernel/orm"
+	"app/kernel/redis"
 )
 
 var Container kernel.Container
@@ -12,9 +15,9 @@ func init() {
 	Container = kernel.GetContainer()
 	providers = map[string]interface{}{}
 
-	providers["config"] = kernel.ConfigProvider{}
-	providers["db"] = kernel.GormProvider{}
-	providers["redis"] = kernel.RedisProvider{}
+	providers["config"] = config.ConfigProvider{}
+	providers["db"] = orm.GormProvider{}
+	providers["redis"] = redis.RedisProvider{}
 }
 
 func BootStrap() {

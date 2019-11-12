@@ -1,4 +1,4 @@
-package kernel
+package redis
 
 import (
 	"app/kernel/contract"
