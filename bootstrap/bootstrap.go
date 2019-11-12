@@ -25,3 +25,9 @@ func BootStrap() {
 		}
 	}
 }
+
+func PreLoad() {
+	for key, _ := range providers {
+		Container.Get(key)
+	}
+}
