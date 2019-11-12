@@ -22,7 +22,7 @@ func (this Container) Get(key string) interface{} {
 		return ret
 	}
 
-	return DI.Set(key, this.Make(key))
+	return this.Set(key, this.Make(key))
 }
 
 func (this Container) Make(key string) interface{} {

@@ -1,10 +1,12 @@
 package main
 
-import "app/router"
-import "app/kernel"
+import (
+	"app/bootstrap"
+	"app/router"
+)
 
 func main() {
-	kernel.BootStrap()
+	bootstrap.BootStrap()
 
 	r := router.GetServer()
 

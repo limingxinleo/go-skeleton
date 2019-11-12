@@ -2,7 +2,6 @@ package router
 
 import (
 	"app/controller"
-	"app/kernel"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,8 +11,6 @@ func GetServer() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 
-	r.GET("/", func(context *gin.Context) {
-		controller.IndexController{kernel.Response{context}}.Index()
-	})
+	r.GET("/", controller.IndexController{}.Index())
 	return r
 }

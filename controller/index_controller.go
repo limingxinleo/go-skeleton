@@ -2,12 +2,14 @@ package controller
 
 import (
 	"app/kernel"
+	"github.com/gin-gonic/gin"
 )
 
 type IndexController struct {
-	Response kernel.Response
 }
 
-func (this IndexController) Index() {
-	this.Response.Success("Hello World.")
+func (this IndexController) Index() gin.HandlerFunc {
+	return func(context *gin.Context) {
+		kernel.Response{context}.Success("Hello World.")
+	}
 }
