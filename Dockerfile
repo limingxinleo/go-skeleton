@@ -1,4 +1,4 @@
-FROM golang:1.13 as builder
+FROM golang:1.14 as builder
 
 LABEL maintainer="limx <l@hyperf.io>"
 ENV GOPROXY https://goproxy.cn,direct
