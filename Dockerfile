@@ -22,7 +22,7 @@ ENV GIN_MODE=release
 
 COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
-COPY --from=builder /go/builder/app /
+COPY --from=builder /go/builder /
 
 EXPOSE 9501
 
