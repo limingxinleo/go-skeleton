@@ -10,10 +10,10 @@ type OrmController struct {
 }
 
 func (this OrmController) Index() gin.HandlerFunc {
-	return func(context *gin.Context) {
+	return func(c *gin.Context) {
 		user := dao.UserDao{}.First(1)
 
-		http.Response{context}.Success(gin.H{
+		http.Response{Ctx: c}.Success(gin.H{
 			"id":         user.ID,
 			"name":       user.Name,
 			"gender":     user.Gender,
