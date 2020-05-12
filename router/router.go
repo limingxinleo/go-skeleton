@@ -12,5 +12,6 @@ func GetServer() *gin.Engine {
 	r.Use(gin.Recovery())
 
 	r.GET("/", controller.IndexController{}.Index())
+	r.GET("/orm", controller.OrmController{}.Index())
 	return r
 }
