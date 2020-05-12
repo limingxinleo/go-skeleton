@@ -10,12 +10,12 @@ import (
 type IndexController struct {
 }
 
-func (this IndexController) Index() gin.HandlerFunc {
+func (IndexController) Index() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		project := provider.Config.Get("APP_NAME", "Hyperf")
 
 		message := fmt.Sprintf("Hello %s.", project)
 
-		http.Response{c}.Success(message)
+		http.Response{Ctx: c}.Success(message)
 	}
 }

@@ -8,8 +8,8 @@ func New(items map[string]string) Config {
 	return Config{items: items}
 }
 
-func (this Config) Get(key string, value string) string {
-	ret, ok := this.items[key]
+func (c Config) Get(key string, value string) string {
+	ret, ok := c.items[key]
 	if ok {
 		return ret
 	}
@@ -17,8 +17,8 @@ func (this Config) Get(key string, value string) string {
 	return value
 }
 
-func (this Config) Has(key string) bool {
-	_, ok := this.items[key]
+func (c Config) Has(key string) bool {
+	_, ok := c.items[key]
 	if ok {
 		return true
 	}
