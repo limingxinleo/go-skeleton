@@ -18,7 +18,7 @@ func (this Response) Success(data interface{}) {
 
 func (this Response) Failed(code int, message string) {
 	result := map[string]interface{}{}
-	result["code"] = 0
+	result["code"] = code
 	result["message"] = message
 	this.Ctx.JSON(http.StatusOK, result)
 }
