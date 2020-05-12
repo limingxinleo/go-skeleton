@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"app/bootstrap"
+	"app/kernel/http"
+	"app/service/dao"
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 )
 
 type OrmController struct {
@@ -11,7 +11,13 @@ type OrmController struct {
 
 func (this OrmController) Index() gin.HandlerFunc {
 	return func(context *gin.Context) {
-		db := bootstrap.Container.Get("db").(*gorm.DB)
-		db.Where("id = ?", 1).First()
+		user := dao.UserDao{}.First(1)
+
+		http.Response{context}.Success(gin.H{
+			"id":         user.ID,
+			"name":       user.Name,
+			"gender":     user.Gender,
+			"created_at": user.CreatedAt,
+		})
 	}
 }
